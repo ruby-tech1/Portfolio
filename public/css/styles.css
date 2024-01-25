@@ -36,10 +36,21 @@ html{
 }
 
 body {
-    /* font-family: 'IBM Plex Mono', monospace;
-    font-family: 'Raleway', sans-serif; */
     width: 100%;
     line-height: 1.5;
+}
+
+
+@media screen and (max-width: 800px) {
+    *, *::before, *::after{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+   
+    html {
+        font-size: 58%;
+    }
 }
 
 .menu-links, button, p, a, .marquee, input, textarea{
@@ -75,6 +86,7 @@ button {
     justify-content: center;
 }
 
+
 /* Menu styling */
 
 nav {
@@ -89,6 +101,7 @@ nav {
     width: 80%;
     border-radius: 0px 0px 5px 5px;
 }
+
 
 .menu-links > li > a {
     font-size: 1.5rem;
@@ -115,13 +128,15 @@ nav {
     justify-content: center;
 }
 
+
+/* Icons in the menu */
+
 .menu-icons {
     width: 30%;
     gap: 18%;
     justify-content: flex-start;
 }
 
-/* Icons in the menu */
 
 i {
     font-size: 1.9rem;
@@ -132,6 +147,24 @@ i:hover{
     color: var(--hover-green);
     font-size: 2rem;
 }
+
+@media screen and (max-width: 800px) {
+    nav {
+        width: 100%;
+    }
+
+    .menu-links{
+        width: 90%;
+    }
+
+    .menu-links > li > a {
+        /* font-size: 1.4rem; */
+    }
+
+    .menu-icons {
+        display: none;
+    }
+ }
 
 /* Home Section styling */
 
@@ -225,7 +258,72 @@ i:hover{
 .home1:hover, .home2:hover{
     font-size: 1.6rem;
     gap: 20px;
- }
+}
+
+@media screen and (max-width: 800px) {
+    .main-intro{
+        background-color: transparent;
+        position: relative;
+        margin-top: -20px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .main-text {
+        width: 100%;
+        padding: 0 15px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+        z-index: 2;
+    }
+
+    .name, .text {
+        text-align: center;
+    }
+
+    .name {
+        font-size: 3.5rem;
+        font-weight: 800;
+    }
+
+    .text {
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .image-box {
+       display: block;
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       z-index: -1;
+    }
+
+    .profile-image {
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 30%;
+    }
+    
+    .home-btns {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    
+    .home-btn {
+        padding: 19px 50px;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    .home2 {
+        display: none;
+    }
+}
 
 /* Style for tools worked with */
 
@@ -257,6 +355,17 @@ i:hover{
     /* margin-left: -70px; */
 } 
 
+@media screen and (max-width: 800px) {
+    .tools-text {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+
+}
+
 /* Styles for projects section */
 
 .projects {
@@ -279,10 +388,12 @@ i:hover{
     width: 75%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .projects-tile:nth-of-type(2), .projects-tile:nth-of-type(4){
     flex-direction: row-reverse;
+    gap: 40px
 }
 
 .projects-text-block, .projects-image-block {
@@ -290,13 +401,25 @@ i:hover{
 }
 
 .projects-text-block {
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.about-con {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-color-btn {
+    text-align: center;
+    width: 100px;
+    font-family: var(--text-font1);
     padding: 5px 13px;
     border-radius: 60px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 1.2rem;
 }
 
@@ -320,6 +443,65 @@ i:hover{
     font-size: 1.45rem;
     font-weight: 700;
     color: var(--text-color-white);
+}
+
+.projects-image-block{
+    
+}
+
+.project-image {
+    width: 100%;
+    max-width: 310px;
+    height: 300px;
+}
+
+@media screen and (max-width: 800px) {
+    .projects-tile{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        position: relative;
+        z-index: 1;
+    }
+
+    .projects-text-block, .projects-image-block {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .projects-text-block {
+        position: absolute;
+        align-items: center;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 15px 0;
+        height: 300px;
+    }
+
+    .projects-image-block {
+        display: block;
+        position: absolute;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .about-con {
+        align-items: center;
+    }
+
+    .about-con {
+        margin-top: 0;
+    }
+
+    .project-title {
+        color: var(--text-color-white);
+    }
+
+    .project-text {
+        text-align: center;
+        color: var(--text-color-white);
+    }
 }
 
 /* Styles for individual buttons */
