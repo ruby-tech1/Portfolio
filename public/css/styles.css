@@ -1,4 +1,5 @@
 :root {
+    --projects-bgcolor: #fff;
     --home-backgroundcolor: #080808;
     --text-color-white: #FFF;
     --text-color-gray: #9C9C9C;
@@ -35,11 +36,17 @@ html{
     scroll-behavior: smooth;
 }
 
+
 body {
     width: 100%;
     line-height: 1.5;
 }
 
+@media screen and (max-height: 850px) {
+    body {
+        background-color: var(--text-color-black);
+    }
+}
 
 @media screen and (max-width: 800px) {
     *, ::before, ::after{
@@ -100,6 +107,7 @@ nav {
     min-height: 50px;
     width: 80%;
     border-radius: 0px 0px 5px 5px;
+    z-index: 5;
 }
 
 
@@ -277,8 +285,7 @@ i:hover{
     .main-intro{
         background-color: transparent;
         position: relative;
-        margin-top: -30px;
-
+        margin-top: -50px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -439,6 +446,7 @@ i:hover{
 /* Styles for projects section */
 
 .projects {
+    background-color: var(--projects-bgcolor);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -725,8 +733,51 @@ i:hover{
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 800px) and (orientation: landscape) {
+    .about {
+        height: 100vh;
+    }
 
-@media screen and (max-width: 800px) {
+    .about-block {
+        position: relative;
+        flex-direction: none;
+        width: 90%;
+        justify-content: space-evenly
+    }
+
+    .about-image-block, .about-text {
+        width: 100%;
+        position: absolute;
+    }
+
+    .about-image-block{
+        width: 100%;
+        height: 100%;
+        margin-right: 10px;
+        display: none;
+    }
+
+    .about-profile-imagee{
+        width: 100%;
+        margin: 0;
+        /* padding-right: 10px; */
+    }
+
+    .about-text {
+        max-width: 450px;
+        padding: 0 10px;
+        text-align: justify;
+        z-index: 3;
+    }
+
+    .about-icons{
+        display: flex;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) and (orientation: portrait){
     
     .about {
         height: 60vh;
@@ -882,8 +933,14 @@ footer {
 }
 
 p > a {
-    color: var(--text-color-white);
+    color:  var(--bgcolor3-text); 
     text-decoration: none;
+    transition: .2s ease;
+}
+
+p > a:hover {
+    letter-spacing: 2px;
+    text-decoration: underline;
 }
 
 footer > .foot-text {
