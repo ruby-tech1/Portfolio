@@ -24,7 +24,7 @@
     --hover-green: #62BA1B;
 }
 
-*, *::before, *::after{
+*, ::before, ::after{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -42,7 +42,7 @@ body {
 
 
 @media screen and (max-width: 800px) {
-    *, *::before, *::after{
+    *, ::before, ::after{
         box-sizing: border-box;
         padding: 0;
         margin: 0;
@@ -164,7 +164,18 @@ i:hover{
     .menu-icons {
         display: none;
     }
- }
+}
+
+@media screen and (max-width: 1000px) {
+    nav {
+        width: 100%;
+    }
+
+    .menu-links{
+        width: 90%;
+    }
+    
+}
 
 /* Home Section styling */
 
@@ -209,6 +220,7 @@ i:hover{
 }
 
 .name {
+    text-transform: capitalize;
     color: var(--text-color-white);
     font-size: 4.4rem;
     font-weight: 800;
@@ -236,6 +248,7 @@ i:hover{
     gap: 15px;
     font-size: 1.5rem;
     font-weight: 700;
+    /* max-width: 225px; */
 }
 
 .home1, .home2 {
@@ -256,15 +269,16 @@ i:hover{
 }
 
 .home1:hover, .home2:hover{
-    font-size: 1.6rem;
-    gap: 20px;
+    transform: scale(1.05);
+
 }
 
 @media screen and (max-width: 800px) {
     .main-intro{
         background-color: transparent;
         position: relative;
-        margin-top: -20px;
+        margin-top: -30px;
+
         height: 100%;
         display: flex;
         align-items: center;
@@ -276,7 +290,7 @@ i:hover{
         padding: 0 15px;
         align-items: center;
         justify-content: center;
-        margin-left: 0;
+        margin-left: 0px;
         z-index: 2;
     }
 
@@ -324,6 +338,62 @@ i:hover{
         display: none;
     }
 }
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+
+    .main-text {
+        /* width: 30%; */
+        margin-left: 80px;
+        align-items: flex-start;
+    }
+
+    .name {
+        font-size: 4rem;
+        font-weight: 800;
+        /* text-align: center; */
+    }
+
+    .text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 10px 0 13px 0;
+        max-width: 420px;
+    }
+
+    .profile-image{
+        border-radius: 0;
+    }
+
+    .home-btns {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    
+    .home-btn {
+        padding: 15px 40px;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .home2 {
+        /* display: none; */
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .main-text {
+        margin-left: 140px;
+    }
+
+    .home-btn {
+        font-size: 1.5rem;
+        padding: 17px 40px;
+    }
+
+    .home2 {
+        padding: 17px 32px;
+    }
+} 
 
 /* Style for tools worked with */
 
@@ -405,6 +475,7 @@ i:hover{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 15px 0;
 }
 
 .about-con {
@@ -634,7 +705,70 @@ i:hover{
 
 .about-text {
     font-size: 1.6rem;
+    width: 100%;
+}
 
+.about-icons {
+    display: none;
+    margin: 50px auto 0 auto;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.about-links > i {
+    font-size: 4rem;
+    transition: .2s ease;
+}
+
+.about-links > i:hover {
+    transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 800px) {
+    
+    .about {
+        height: 60vh;
+    }
+
+    .about-block {
+        position: relative;
+        flex-direction: none;
+        width: 90%;
+        justify-content: space-evenly
+    }
+
+    .about-image-block, .about-text {
+        width: 100%;
+        position: absolute;
+    }
+
+    .about-image-block{
+        width: 100%;
+        height: 100%;
+        margin-right: 10px;
+        display: none;
+    }
+
+    .about-profile-imagee{
+        width: 100%;
+        margin: 0;
+        /* padding-right: 10px; */
+    }
+
+    .about-text {
+        max-width: 450px;
+        padding: 0 10px;
+        text-align: justify;
+        z-index: 3;
+    }
+
+    .about-icons{
+        display: flex;
+    }
+
+    
 }
 
 /* Styles for contacts */
@@ -663,10 +797,15 @@ i:hover{
     margin-bottom: 40px;
 }
 
+.contacts-block {
+    width: 100%;
+    display: block;
+    max-width: 350px;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 30px;
 }
 
@@ -675,12 +814,13 @@ label {
     flex-direction: column;
     color: var(--text-color-white);
     gap: 5px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
+    width: 100%;
 }
 
-input, textarea{
-    width: 350px;
+.contacts-block > form > label > input, textarea{
+    width: 100%;
     border-radius: 5px;
     outline: none;
     padding: 0 12px;
@@ -689,7 +829,7 @@ input, textarea{
     background-color: var(--input-bgcolor);
 }
 
-input {
+.contacts-block > form > label > input {
     height: 40px; 
 }
 
@@ -705,7 +845,8 @@ button.submit {
     flex-direction: row;
     gap: 15px;
     padding: 16px 24px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     font-size: 1.5rem;
     font-weight: 700;
     border-radius: 4px;
@@ -721,6 +862,16 @@ button.submit:hover {
     color: var(--bordercolor-home1);
 }
 
+@media screen and (max-width: 800px) {
+    .contacts-text {
+        width: 350px
+    }
+
+    .contacts {
+    }
+
+}
+
 /* Styles for footer */
 
 footer {
@@ -728,6 +879,11 @@ footer {
     height: 35px;
     padding: 5px 0;
     background-color: var(--home-backgroundcolor);
+}
+
+p > a {
+    color: var(--text-color-white);
+    text-decoration: none;
 }
 
 footer > .foot-text {
